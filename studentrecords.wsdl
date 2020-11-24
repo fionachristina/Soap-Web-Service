@@ -1,0 +1,33 @@
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:studentrecords" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:studentrecords">
+<types>
+<xsd:schema targetNamespace="urn:studentrecords"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+</xsd:schema>
+</types>
+<message name="get_studentsRequest">
+  <part name="student_adm" type="xsd:integer" /></message>
+<message name="get_studentsResponse">
+  <part name="return" type="xsd:Array" /></message>
+<portType name="studentrecordsPortType">
+  <operation name="get_students">
+    <documentation>Retrieve student records from database depending on student ID passed</documentation>
+    <input message="tns:get_studentsRequest"/>
+    <output message="tns:get_studentsResponse"/>
+  </operation>
+</portType>
+<binding name="studentrecordsBinding" type="tns:studentrecordsPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="get_students">
+    <soap:operation soapAction="urn:studentrecords#get_students" style="rpc"/>
+    <input><soap:body use="encoded" namespace="urn:studentrecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:studentrecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="studentrecords">
+  <port name="studentrecordsPort" binding="tns:studentrecordsBinding">
+    <soap:address location="http://localhost/Simple-Soap-Demo-main/retrieve_students.php"/>
+  </port>
+</service>
+</definitions>
