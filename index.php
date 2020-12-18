@@ -127,7 +127,7 @@ if(isset($_POST['display'])){
                                                         <div class="input-group"> <input type="text" required placeholder="0-100" class="placeicon" name="entry_points" id="inputEntry_points"> <label>Entry Points</label> </div>
                                                     </div>
                                                     <div class="col-12">
-                                                        <div class="input-group"> <input type="text" required placeholder="e.g. BICS, BBIT, BCOM" class="placeicon" name="course" id="inputCourse"> <label>Email</label> </div>
+                                                        <div class="input-group"> <input type="text" required placeholder="e.g. BICS, BBIT, BCOM" class="placeicon" name="course" id="inputCourse"> <label>Course</label> </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="input-group"> <input type="text" required placeholder="e.g. Nairobi, Kisumu, Machakos" class="placeicon" name="address" id="inputAddress"> <label>Home Address</label> </div>
