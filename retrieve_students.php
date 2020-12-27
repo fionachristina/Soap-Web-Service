@@ -2,7 +2,7 @@
 require_once "lib/nusoap.php";
 
 function get_students($student_adm){
-    require 'db.php';
+    require 'Database/db.php';
 
     $students = array();
 
@@ -30,7 +30,7 @@ function get_students($student_adm){
 //create the soap object
 
 $server = new soap_server();
-$server->register("get_students");
+//$server->register("get_students");
 
 $server->configureWSDL("studentrecords", "urn:studentrecords");
 

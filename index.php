@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'Database/db.php';
 
 if(isset($_POST['submit'])){
     $student_name = $_POST['student_name'];
@@ -43,7 +43,7 @@ require_once "lib/nusoap.php";
 
 
 if(isset($_POST['display'])){
-    require 'db.php';
+    require 'Database/db.php';
 
     $student_adm = $_POST['student_adm'];
 
@@ -51,7 +51,7 @@ if(isset($_POST['display'])){
     We can use the url below or create a wsdl file with the contents from the URL
     below then use the file to create the client object  
     */
-    $client = new nusoap_client("./studentrecords.wsdl", true);
+    $client = new nusoap_client("studentrecords.wsdl", true);
 
     $error = $client->getError();
     if ($error) {
@@ -235,7 +235,17 @@ if(isset($_POST['display'])){
                                     ';
                                 }
                             }
-                        }                     
+                        } 
+                         /*  Debugging the code  
+                    echo "<h2>Request</h2>";
+                    echo "<pre>" . htmlspecialchars($client->request, ENT_QUOTES) . "</pre>";
+                    echo "<h2>Response</h2>";
+                    echo "<pre>" . htmlspecialchars($client->response, ENT_QUOTES) . "</pre>";
+                    // Display the debug messages
+                    echo '<h2>Debug</h2>';
+                    echo '<pre>' . htmlspecialchars($client->debug_str, ENT_QUOTES) . '</pre>';
+                               */         
+                                       
                     ?>
                 </tbody>
             </table>

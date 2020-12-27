@@ -27,7 +27,7 @@
 </binding>
 <service name="studentrecords">
   <port name="studentrecordsPort" binding="tns:studentrecordsBinding">
-    <soap:address location="http://localhost/Simple-Soap-Demo-main/retrieve_students.php"/>
+    <soap:address location="http://localhost/soapyy/retrieve_students.php"/>
   </port>
 </service>
 </definitions>

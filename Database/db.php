@@ -3,7 +3,7 @@
 $server_name = "localhost";
 $user_name = "root";
 $pass = "";
-$database_name = "studentDetails";
+$database_name = "studentsinfo";
 
 
 // Create connection
@@ -16,9 +16,8 @@ if (!$conn) {
 // Create database
 $db_sql = "CREATE DATABASE IF NOT EXISTS $database_name";
 if (mysqli_query($conn, $db_sql)) {
-  //echo "Database created successfully";
 } else {
-  echo "Error creating database: " . mysqli_error($conn);
+  //echo "Error creating database: " . mysqli_error($conn);
 }
 
 $conn = mysqli_connect($server_name, $user_name, $pass, $database_name);
@@ -33,9 +32,7 @@ $table_sql = "CREATE TABLE IF NOT EXISTS student_table(
     course varchar(255)
 )";
 if (mysqli_query($conn, $table_sql)) {
-   // echo "Table created successfully";
   } else {
-   // echo "Error creating Table: " . mysqli_error($conn);
   }
 
 //mysqli_close($conn);
